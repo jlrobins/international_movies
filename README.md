@@ -26,7 +26,7 @@ This project combines Reddit data collection with a polished single-page applica
 
 Located in `docs/` for GitHub Pages hosting:
 
-- **`docs/international_movies_table.html`** — Single-page application with all logic (HTML, CSS, JavaScript)
+- **`docs/index.html`** — Single-page application with all logic (HTML, CSS, JavaScript)
 - **`docs/movies.json`** — Movie data (96 entries: id, title, country, genre, summary)
 - **`dev_server.sh`** — Local development server (serves from `docs/` on localhost:8080)
 

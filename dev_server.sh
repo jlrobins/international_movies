@@ -9,7 +9,7 @@ SERVER_PID=$!
 sleep 1
 
 # Open the URL in the default browser
-open http://localhost:8080/international_movies_table.html
+open http://localhost:8080/
 
 echo "Server started with PID $SERVER_PID"
 echo "Press Ctrl+C to stop"
