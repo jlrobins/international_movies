@@ -40,7 +40,13 @@ Located in `docs/` for GitHub Pages hosting:
 
 ### SPA Capabilities
 
-- **Dual-checkbox + skip tracking** — Mark movies as "Want to see", "Seen", or "Skip"
+- **Triple-checkbox tracking** — Mark movies as "Want to see", "Seen", or "Skip" (mutually exclusive)
+- **Responsive card grid** — 1 column on mobile, 2 columns on tablet, 3 columns on desktop
+  - Each card displays status checkboxes, title (IMDB link), country/genre, and summary
+  - Smooth hover effects and subtle shadows for visual hierarchy
+- **Sticky header with smart hide/show** — Control bar stays visible or auto-hides on scroll:
+  - Disappears when scrolling down to maximize content space
+  - Reappears when scrolling up for quick access to controls
 - **Multi-column sorting** — 9 sort options:
   - Want (↑/↓), Seen (↑/↓), Skip (↑/↓)
   - Title, Country, Genre, Comments Summary (↑/↓ each)
@@ -48,7 +54,6 @@ Located in `docs/` for GitHub Pages hosting:
 - **Live search** — Case-insensitive substring filtering across Title, Country, Genre
 - **Filter select** — View All, Seen only, Wanted only, or Skipped movies
 - **IMDB links** — Click any title to search IMDB in a new tab
-- **Responsive table** — Clean, accessible layout with hover states
 
 ## Setup
 
@@ -83,7 +88,7 @@ This installs:
 ./dev_server.sh
 ```
 
-Opens `http://localhost:8080/international_movies_table.html` in your browser.
+Opens `http://localhost:8080/` in your browser (serves `index.html` by default).
 
 ## Data Generation Workflow
 
