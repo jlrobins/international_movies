@@ -1,0 +1,674 @@
+[
+  {
+    "title": "Hunt for the Wilderpeople (2016)",
+    "country": "New Zealand",
+    "genre": "Comedy/Adventure",
+    "summary": "Highly beloved; commenters quoted lines and praised director Taika Waititi's writing and the funeral scene in particular. Noted a 10th anniversary screening.",
+    "id": 1
+  },
+  {
+    "title": "Cape No. 7 (2008)",
+    "country": "Taiwan",
+    "genre": "Romance/Coming-of-age",
+    "summary": "Listed as part of a comprehensive overview of Taiwanese cinema that international audiences rarely discover.",
+    "id": 2
+  },
+  {
+    "title": "You Are the Apple of My Eye (2011)",
+    "country": "Taiwan",
+    "genre": "Romance/Coming-of-age",
+    "summary": "One commenter said they \"cried like a baby\" watching it. Part of a broad Taiwanese film recommendation list.",
+    "id": 3
+  },
+  {
+    "title": "Our Times (2015)",
+    "country": "Taiwan",
+    "genre": "Romance/Coming-of-age",
+    "summary": "Included in a curated list of popular Taiwanese films frequently discussed in Mandarin-speaking film communities.",
+    "id": 4
+  },
+  {
+    "title": "Dear Ex (2018)",
+    "country": "Taiwan",
+    "genre": "Romance/Drama",
+    "summary": "Recommended as part of a list of modern Taiwanese films underrepresented in international film discourse.",
+    "id": 5
+  },
+  {
+    "title": "Your Name Engraved Herein (2020)",
+    "country": "Taiwan",
+    "genre": "Romance/Drama",
+    "summary": "Emotionally powerful; one viewer noted crying through the credits.",
+    "id": 6
+  },
+  {
+    "title": "Marry My Dead Body (2023)",
+    "country": "Taiwan",
+    "genre": "Comedy/Horror",
+    "summary": "Part of a broad Taiwanese film recommendation covering recent years.",
+    "id": 7
+  },
+  {
+    "title": "A Sun (2019)",
+    "country": "Taiwan",
+    "genre": "Drama/Social Realism",
+    "summary": "Highlighted as part of a curated list of serious Taiwanese social dramas.",
+    "id": 8
+  },
+  {
+    "title": "The Falls (2021)",
+    "country": "Taiwan",
+    "genre": "Drama/Social Realism",
+    "summary": "Included in a list of acclaimed Taiwanese dramas rarely seen internationally.",
+    "id": 9
+  },
+  {
+    "title": "Little Big Women (2020)",
+    "country": "Taiwan",
+    "genre": "Drama",
+    "summary": "Recommended as part of a broader survey of modern Taiwanese cinema.",
+    "id": 10
+  },
+  {
+    "title": "American Girl (2021)",
+    "country": "Taiwan",
+    "genre": "Drama/Social Realism",
+    "summary": "Part of a curated Taiwanese film list for viewers unfamiliar with modern Taiwanese cinema.",
+    "id": 11
+  },
+  {
+    "title": "Old Fox (2023)",
+    "country": "Taiwan",
+    "genre": "Drama",
+    "summary": "Included in a list of recent Taiwanese films worth discovering.",
+    "id": 12
+  },
+  {
+    "title": "Sunshine Women's Choir (2025)",
+    "country": "Taiwan",
+    "genre": "Drama",
+    "summary": "Part of a comprehensive Taiwanese film recommendation list.",
+    "id": 13
+  },
+  {
+    "title": "Dead Talents Society (2024)",
+    "country": "Taiwan",
+    "genre": "Comedy/Horror",
+    "summary": "Included in a curated list of Taiwanese genre films.",
+    "id": 14
+  },
+  {
+    "title": "The Great Buddha+ (2017)",
+    "country": "Taiwan",
+    "genre": "Crime/Dark Satire",
+    "summary": "Listed under crime and dark satire in a curated overview of modern Taiwanese cinema.",
+    "id": 15
+  },
+  {
+    "title": "The Bold, the Corrupt, and the Beautiful (2017)",
+    "country": "Taiwan",
+    "genre": "Crime/Political Thriller",
+    "summary": "Part of a broad Taiwanese film recommendation highlighting underrepresented titles.",
+    "id": 16
+  },
+  {
+    "title": "The Pig, the Snake and the Pigeon (2023)",
+    "country": "Taiwan",
+    "genre": "Crime/Thriller",
+    "summary": "Included in a Taiwanese crime and political film list.",
+    "id": 17
+  },
+  {
+    "title": "96 Minutes (2025)",
+    "country": "Taiwan",
+    "genre": "Crime/Thriller",
+    "summary": "Part of a curated Taiwanese film list.",
+    "id": 18
+  },
+  {
+    "title": "Seediq Bale (2011)",
+    "country": "Taiwan",
+    "genre": "Historical Epic",
+    "summary": "Listed as a historical epic in a comprehensive Taiwanese film overview.",
+    "id": 19
+  },
+  {
+    "title": "A Foggy Tale (2025)",
+    "country": "Taiwan",
+    "genre": "Historical Drama",
+    "summary": "Part of a curated Taiwanese historical/epic film list.",
+    "id": 20
+  },
+  {
+    "title": "The Tag-Along (2015)",
+    "country": "Taiwan",
+    "genre": "Horror",
+    "summary": "Recommended as part of a Taiwanese horror film overview.",
+    "id": 21
+  },
+  {
+    "title": "Detention (2019)",
+    "country": "Taiwan",
+    "genre": "Horror",
+    "summary": "Included in a curated list of modern Taiwanese horror.",
+    "id": 22
+  },
+  {
+    "title": "The Sadness (2021)",
+    "country": "Taiwan",
+    "genre": "Horror",
+    "summary": "Part of a Taiwanese horror film recommendation list.",
+    "id": 23
+  },
+  {
+    "title": "Incantation (2022)",
+    "country": "Taiwan",
+    "genre": "Horror",
+    "summary": "Included in a comprehensive Taiwanese horror film overview.",
+    "id": 24
+  },
+  {
+    "title": "The King Tide",
+    "country": "Canada",
+    "genre": "Drama",
+    "summary": "Recommended by the post's author (OP) as a recent standout in Canadian cinema; described as \"really special.\"",
+    "id": 25
+  },
+  {
+    "title": "Boiling Point (2021)",
+    "country": "UK",
+    "genre": "Drama",
+    "summary": "Described as emotionally draining even for viewers outside the restaurant industry. The one-take technique was praised, but what impressed the commenter most was how the film lingered in their mind for weeks. A piece of dialogue became a personal mantra.",
+    "id": 26
+  },
+  {
+    "title": "A Separation (2011)",
+    "country": "Iran",
+    "genre": "Drama",
+    "summary": "Briefly but enthusiastically recommended; one reply called it a \"good choice.\"",
+    "id": 27
+  },
+  {
+    "title": "Incendies",
+    "country": "Canada",
+    "genre": "Drama/Thriller",
+    "summary": "Recommended, though another commenter noted it may be older than ten years.",
+    "id": 28
+  },
+  {
+    "title": "Sweet Country (2017)",
+    "country": "Australia",
+    "genre": "Historical Drama",
+    "summary": "Described as Australia's answer to films about racial oppression \u2014 a slow, quiet film about an indigenous man accused of a crime. Praised for its intimate tone where small moments carry enormous weight.",
+    "id": 29
+  },
+  {
+    "title": "The Dry (2020)",
+    "country": "Australia",
+    "genre": "Mystery/Thriller",
+    "summary": "Recommended alongside other recent Australian titles.",
+    "id": 30
+  },
+  {
+    "title": "The Stranger (2022)",
+    "country": "Australia",
+    "genre": "Crime/Thriller",
+    "summary": "Listed as one of Australia's best recent films.",
+    "id": 31
+  },
+  {
+    "title": "Lion (2016)",
+    "country": "Australia",
+    "genre": "Drama",
+    "summary": "Recommended as a strong recent Australian film.",
+    "id": 32
+  },
+  {
+    "title": "Private Desert",
+    "country": "Brazil",
+    "genre": "Drama",
+    "summary": "Briefly recommended by a Brazilian commenter.",
+    "id": 33
+  },
+  {
+    "title": "Intouchables",
+    "country": "France",
+    "genre": "Drama/Comedy",
+    "summary": "Enthusiastically seconded by commenters; one called it \"one of the best movies ever.\"",
+    "id": 34
+  },
+  {
+    "title": "Le Premier Jour du Reste de Ta Vie",
+    "country": "France",
+    "genre": "Drama",
+    "summary": "Recommended alongside Intouchables as a French highlight.",
+    "id": 35
+  },
+  {
+    "title": "Su ve Ate\u015f",
+    "country": "Turkey",
+    "genre": "Drama",
+    "summary": "Briefly recommended as a Turkish highlight.",
+    "id": 36
+  },
+  {
+    "title": "Nirvanna the Band the Show the Movie",
+    "country": "Canada",
+    "genre": "Comedy",
+    "summary": "Praised as one of the funniest comedies in recent years; recommended for theatre viewing.",
+    "id": 37
+  },
+  {
+    "title": "Universal Language (2024)",
+    "country": "Canada",
+    "genre": "Drama",
+    "summary": "Described as interesting, particularly resonant for viewers familiar with Winnipeg.",
+    "id": 38
+  },
+  {
+    "title": "Varia\u00e7\u00f5es",
+    "country": "Portugal",
+    "genre": "Biography/Drama",
+    "summary": "A biopic about influential Portuguese musician Ant\u00f3nio Varia\u00e7\u00f5es; briefly recommended.",
+    "id": 39
+  },
+  {
+    "title": "La Yuma",
+    "country": "Nicaragua",
+    "genre": "Drama",
+    "summary": "Recommended as a window into Nicaraguan life; comment was in Spanish.",
+    "id": 40
+  },
+  {
+    "title": "I Swear",
+    "country": "Scotland",
+    "genre": "Drama",
+    "summary": "Briefly recommended.",
+    "id": 41
+  },
+  {
+    "title": "Lesson Learned (2024)",
+    "country": "Hungary",
+    "genre": "Drama",
+    "summary": "A story about a child moving back to Hungary from Germany and navigating a new school; described as a critique of the Hungarian education system.",
+    "id": 42
+  },
+  {
+    "title": "White Palms (2006)",
+    "country": "Hungary",
+    "genre": "Drama",
+    "summary": "About a Hungarian gymnast who moves to Canada and applies abusive coaching methods; recommended especially for Canadian viewers for its cultural resonance.",
+    "id": 43
+  },
+  {
+    "title": "Hope You Die Next Time (2018)",
+    "country": "Hungary",
+    "genre": "Drama/Thriller",
+    "summary": "About a sexting scandal between a student and teacher.",
+    "id": 44
+  },
+  {
+    "title": "I Accidentally Wrote a Book (2024)",
+    "country": "Hungary",
+    "genre": "Drama",
+    "summary": "A teen coping with grief over her mother while her father moves on.",
+    "id": 45
+  },
+  {
+    "title": "Well (2016)",
+    "country": "Hungary",
+    "genre": "Drama/Thriller",
+    "summary": "Dark film set at a gas station near a border; described as having a darker tone.",
+    "id": 46
+  },
+  {
+    "title": "Pelikan Blue (2023)",
+    "country": "Hungary",
+    "genre": "Documentary/Animation",
+    "summary": "Animated documentary based on a true story about forging international train tickets.",
+    "id": 47
+  },
+  {
+    "title": "Liza the Fox-Fairy (2015)",
+    "country": "Hungary",
+    "genre": "Dark Comedy",
+    "summary": "The main character can see a dead Japanese pop star who keeps killing her partners; described as a dark comedy.",
+    "id": 48
+  },
+  {
+    "title": "Son of Saul (2015)",
+    "country": "Hungary",
+    "genre": "Drama/War",
+    "summary": "Oscar-winning film following a Jewish prisoner in a WWII concentration camp; described as excellent but very tough to watch.",
+    "id": 49
+  },
+  {
+    "title": "Andhadhun (2018)",
+    "country": "India",
+    "genre": "Thriller",
+    "summary": "Mentioned multiple times across the thread as a standout Indian thriller.",
+    "id": 50
+  },
+  {
+    "title": "Silver Skates (2020)",
+    "country": "Russia",
+    "genre": "Historical Adventure",
+    "summary": "Described as visually beautiful, set in wintry St. Petersburg with people traveling across frozen canals on skates. Praised for its unique atmosphere.",
+    "id": 51
+  },
+  {
+    "title": "Captain Volkonogov Escaped (2021)",
+    "country": "Russia",
+    "genre": "Drama/Surrealism",
+    "summary": "Described as showing the horrors of the Soviet state system with an effective mix of surrealism and drama; praised for still feeling relevant in modern Russia. Commenter shared a trailer link.",
+    "id": 52
+  },
+  {
+    "title": "Bingo: King of the Mornings (2017)",
+    "country": "Brazil",
+    "genre": "Biography/Drama",
+    "summary": "True story of the first actor to play Bozo the Clown on Brazilian TV; highlights drug addiction problems including performing while on cocaine.",
+    "id": 53
+  },
+  {
+    "title": "The Movie of My Life (2018)",
+    "country": "Brazil",
+    "genre": "Drama",
+    "summary": "A boy returns to his small town seeking his absent French father; described as one of the most gorgeous-looking films the commenter has seen.",
+    "id": 54
+  },
+  {
+    "title": "Carnival is Over (2024)",
+    "country": "Brazil",
+    "genre": "Crime/Drama",
+    "summary": "A couple trying to leave a criminal family business find every decision pulls them deeper in, destroying their marriage.",
+    "id": 55
+  },
+  {
+    "title": "The Clown's Daughter (2022)",
+    "country": "Brazil",
+    "genre": "Drama",
+    "summary": "A daughter tries to reconnect with her gay father who performs as a drag queen clown; explores family rupture and reconciliation.",
+    "id": 56
+  },
+  {
+    "title": "45 do Segundo Tempo (2022)",
+    "country": "Brazil",
+    "genre": "Drama/Comedy",
+    "summary": "Three estranged friends reunite after 40 years when one plans to end his life after watching his team win a championship; described as reigniting their friendship.",
+    "id": 57
+  },
+  {
+    "title": "The Flesh Itself (2025)",
+    "country": "Brazil",
+    "genre": "Horror",
+    "summary": "Three soldiers desert during the Paraguayan War and encounter Lovecraftian horrors in an isolated house.",
+    "id": 58
+  },
+  {
+    "title": "The Kings of the World (2022)",
+    "country": "Colombia",
+    "genre": "Drama",
+    "summary": "Listed among Colombian film recommendations.",
+    "id": 59
+  },
+  {
+    "title": "El Olvido que Seremos (2020)",
+    "country": "Colombia",
+    "genre": "Biography/Drama",
+    "summary": "Listed among Colombian film recommendations.",
+    "id": 60
+  },
+  {
+    "title": "Los Nadie (2021)",
+    "country": "Colombia",
+    "genre": "Drama",
+    "summary": "Listed among Colombian film recommendations.",
+    "id": 61
+  },
+  {
+    "title": "Virus Tropical (2017)",
+    "country": "Colombia",
+    "genre": "Animation/Drama",
+    "summary": "Listed among Colombian film recommendations.",
+    "id": 62
+  },
+  {
+    "title": "El Abrazo de la Serpiente (2015)",
+    "country": "Colombia",
+    "genre": "Drama/Adventure",
+    "summary": "Listed among Colombian film recommendations.",
+    "id": 63
+  },
+  {
+    "title": "A Poet (2025)",
+    "country": "Colombia",
+    "genre": "Drama",
+    "summary": "Listed among recent Colombian film recommendations.",
+    "id": 64
+  },
+  {
+    "title": "So\u00f1e su Nombre (2025)",
+    "country": "Colombia",
+    "genre": "Documentary",
+    "summary": "Listed among recent Colombian film recommendations.",
+    "id": 65
+  },
+  {
+    "title": "Dogman (2018)",
+    "country": "Italy",
+    "genre": "Crime/Drama",
+    "summary": "Recommended as a standout Italian film directed by Matteo Garrone.",
+    "id": 66
+  },
+  {
+    "title": "The Quiet Girl (2022)",
+    "country": "Ireland",
+    "genre": "Drama",
+    "summary": "Described as \"absolutely beautiful\" \u2014 a quiet, neglected girl sent to stay with relatives blossoms and learns what it means to be loved. Highly recommended by the commenter.",
+    "id": 67
+  },
+  {
+    "title": "The Platform / El Hoyo (2019)",
+    "country": "Spain",
+    "genre": "Sci-Fi/Thriller",
+    "summary": "Listed among strong recent Spanish films; others in the list include The Beasts and Snow Society.",
+    "id": 68
+  },
+  {
+    "title": "The Beasts (2022)",
+    "country": "Spain",
+    "genre": "Drama/Thriller",
+    "summary": "Described as the commenter's personal favourite among recent Spanish films; a trailer link was shared.",
+    "id": 69
+  },
+  {
+    "title": "Snow Society (2023)",
+    "country": "Spain",
+    "genre": "Drama/Survival",
+    "summary": "Listed as one of several strong recent Spanish films.",
+    "id": 70
+  },
+  {
+    "title": "Sirat (2025)",
+    "country": "Spain",
+    "genre": "Thriller",
+    "summary": "Listed as one of several strong recent Spanish films.",
+    "id": 71
+  },
+  {
+    "title": "The Worst Person in the World (2021)",
+    "country": "Norway",
+    "genre": "Drama/Romance",
+    "summary": "Called the best Norwegian movie ever; the commenter noted Norwegian cinema rarely produces strong films.",
+    "id": 72
+  },
+  {
+    "title": "Tamasha",
+    "country": "India",
+    "genre": "Drama/Romance",
+    "summary": "Listed as a personal favourite by an Indian commenter.",
+    "id": 73
+  },
+  {
+    "title": "Meiyazhagan",
+    "country": "India",
+    "genre": "Drama",
+    "summary": "Described as the most acclaimed recent pick from India.",
+    "id": 74
+  },
+  {
+    "title": "Luxembourg, Luxembourg",
+    "country": "Ukraine",
+    "genre": "Drama/Comedy",
+    "summary": "Briefly recommended as a Ukrainian highlight.",
+    "id": 75
+  },
+  {
+    "title": "Down Under (2016)",
+    "country": "Australia",
+    "genre": "Comedy/Drama",
+    "summary": "Briefly recommended by an Australian commenter.",
+    "id": 76
+  },
+  {
+    "title": "Portrait de la Jeune Fille en Feu / Portrait of a Lady on Fire (2019)",
+    "country": "France",
+    "genre": "Romance/Drama",
+    "summary": "Recommended by two separate commenters, suggesting broad appeal.",
+    "id": 77
+  },
+  {
+    "title": "Maudie",
+    "country": "Canada",
+    "genre": "Biography/Drama",
+    "summary": "About Nova Scotian folk painter Maud Lewis; recommended as a Canadian highlight.",
+    "id": 78
+  },
+  {
+    "title": "The Happiest Day in the Life of Olli M\u00e4ki (2016)",
+    "country": "Finland",
+    "genre": "Drama/Biography",
+    "summary": "Recommended as Finland's best film from the last ten years.",
+    "id": 79
+  },
+  {
+    "title": "Compartment Number 6 (2021)",
+    "country": "Finland",
+    "genre": "Drama",
+    "summary": "Described as wonderful despite being set in Russia with mostly Russian dialogue.",
+    "id": 80
+  },
+  {
+    "title": "Land of Mine (2016)",
+    "country": "Germany",
+    "genre": "Drama/War",
+    "summary": "Described as a powerful post-WWII film; reviewer warned viewers to be prepared for sadness and strong emotions.",
+    "id": 81
+  },
+  {
+    "title": "Nezha (2019) and Nezha 2",
+    "country": "China",
+    "genre": "Animation/Fantasy",
+    "summary": "Praised for well-crafted animation and a story described as both funny and touching.",
+    "id": 82
+  },
+  {
+    "title": "Honor Thy Father (2015)",
+    "country": "Philippines",
+    "genre": "Thriller",
+    "summary": "Commenter had no expectations but was \"floored from start to finish.\"",
+    "id": 83
+  },
+  {
+    "title": "Samsara (2024)",
+    "country": "Indonesia",
+    "genre": "Drama/Art Film",
+    "summary": "Black-and-white, dialogue-free retelling of a Balinese myth through dance and pantomime; directed by Garin Nugroho.",
+    "id": 84
+  },
+  {
+    "title": "En Man som Heter Ove / A Man Called Ove (2015)",
+    "country": "Sweden",
+    "genre": "Drama/Comedy",
+    "summary": "Noted as the basis for the Tom Hanks remake A Man Called Otto; recommended as a Swedish highlight.",
+    "id": 85
+  },
+  {
+    "title": "Some Birds (2021)",
+    "country": "Hungary",
+    "genre": "Drama",
+    "summary": "About an unlikely friendship between an elderly man and an impulsive teenager; described as the most enjoyable Hungarian film the commenter had seen in years.",
+    "id": 86
+  },
+  {
+    "title": "Parasite (2019)",
+    "country": "South Korea",
+    "genre": "Thriller/Dark Comedy",
+    "summary": "Recommended by multiple commenters; no country was specified but widely known as South Korean.",
+    "id": 87
+  },
+  {
+    "title": "Kumbalangi Nights (2019)",
+    "country": "India (Kerala)",
+    "genre": "Drama/Romance",
+    "summary": "Recommended with a free YouTube link provided.",
+    "id": 88
+  },
+  {
+    "title": "Gold (2022)",
+    "country": "Australia",
+    "genre": "Sci-Fi/Thriller",
+    "summary": "Set in a dystopian future with a very small cast including Zac Efron; described as very bleak. One commenter had high hopes but found it underwhelming; another still recommended it.",
+    "id": 89
+  },
+  {
+    "title": "Joyland (2022)",
+    "country": "Pakistan",
+    "genre": "Drama",
+    "summary": "Briefly recommended.",
+    "id": 90
+  },
+  {
+    "title": "Casanegra",
+    "country": "Morocco",
+    "genre": "Drama",
+    "summary": "Briefly recommended as a personal Moroccan favourite.",
+    "id": 91
+  },
+  {
+    "title": "The Priest's Children (2013)",
+    "country": "Croatia",
+    "genre": "Comedy/Drama",
+    "summary": "Recommended despite being slightly outside the ten-year window.",
+    "id": 92
+  },
+  {
+    "title": "The Room Next Door (2024)",
+    "country": "Spain",
+    "genre": "Drama",
+    "summary": "Briefly recommended.",
+    "id": 93
+  },
+  {
+    "title": "RRR (2022)",
+    "country": "India",
+    "genre": "Action/Historical",
+    "summary": "Recommended by multiple commenters as an Indian highlight.",
+    "id": 94
+  },
+  {
+    "title": "Jiwani Phir Nahi Ani 2",
+    "country": "Pakistan",
+    "genre": "Comedy",
+    "summary": "Briefly recommended as a Pakistani favourite.",
+    "id": 95
+  },
+  {
+    "title": "Indie Game: The Movie (2012)",
+    "country": "Canada",
+    "genre": "Documentary",
+    "summary": "Described by a Canadian commenter as one of their favourite documentaries.",
+    "id": 96
+  }
+]

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Movie Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        #control-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        #sort-select {
+            padding: 6px 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #34495e;
+            cursor: pointer;
+            user-select: none;
+        }
+        th:first-child {
+            width: 50px;
+            text-align: center;
+        }
+        th:hover {
+            background-color: #34495e;
+        }
+        th.sort-asc::after {
+            content: " ↑";
+        }
+        th.sort-desc::after {
+            content: " ↓";
+        }
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        th:nth-child(-n+3), td:nth-child(-n+3) {
+            width: 50px;
+            text-align: center;
+        }
+        input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+        a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #34495e;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1><a href="https://www.reddit.com/r/movies/comments/1rmxwga/international_redditors_tell_me_your_favourite/" target="_blank" rel="noopener noreferrer">International Movie Recommendations</a></h1>
+
+    <div id="control-bar">
+        <span>
+            Show:
+            <select id="filter-select">
+                <option value="all">All</option>
+                <option value="seen">Seen</option>
+                <option value="wanted">Wanted</option>
+                <option value="skip">Skip</option>
+            </select>
+        </span>
+        <span>
+            Sort by:
+            <select id="sort-select">
+                <option value="">— None —</option>
+                <option value="want_asc">Want ↑</option>
+                <option value="want_desc">Want ↓</option>
+                <option value="seen_asc">Seen ↑</option>
+                <option value="seen_desc">Seen ↓</option>
+                <option value="skip_asc">Skip ↑</option>
+                <option value="skip_desc">Skip ↓</option>
+                <option value="title_asc">Title ↑</option>
+                <option value="title_desc">Title ↓</option>
+                <option value="country_asc">Country ↑</option>
+                <option value="country_desc">Country ↓</option>
+                <option value="genre_asc">Genre ↑</option>
+                <option value="genre_desc">Genre ↓</option>
+                <option value="summary_asc">Comments Summary ↑</option>
+                <option value="summary_desc">Comments Summary ↓</option>
+                <option value="country_genre">Country + Genre</option>
+            </select>
+        </span>
+        <span>
+            Search:
+            <input type="text" id="search-input" placeholder="Title, country, or genre...">
+            <a id="clear-search" href="#" style="display: none; margin-left: 8px; color: #2c3e50;">Clear</a>
+        </span>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th data-key="want">Want</th>
+                <th data-key="seen">Seen</th>
+                <th data-key="skip">Skip</th>
+                <th data-key="title">Title</th>
+                <th data-key="country">Country</th>
+                <th data-key="genre">Genre</th>
+                <th data-key="summary">Comments Summary</th>
+            </tr>
+        </thead>
+        <tbody id="movie-body"></tbody>
+    </table>
+
+    <script>
+        let movies = [];
+        let sortMode = ''; // '' | 'want_asc' | 'want_desc' | 'seen_asc' | ... | 'country_genre'
+        let filterMode = 'all'; // 'all' | 'seen' | 'wanted' | 'skip'
+        let searchQuery = '';
+        let movieStatus = new Map(JSON.parse(localStorage.getItem('movie_status') || '[]'));
+        // Stored as [[id, 'seen'], [id, 'want'], ...] — only entries with a status
+
+        function migrateLocalStorage() {
+            if (localStorage.getItem('movie_status') !== null) return; // already migrated
+            const seenArr = JSON.parse(localStorage.getItem('seen_movies') || '[]');
+            const wantArr = JSON.parse(localStorage.getItem('wanted_movies') || '[]');
+            const merged = new Map();
+            seenArr.forEach(id => merged.set(id, 'seen'));
+            wantArr.forEach(id => merged.set(id, 'want')); // want overwrites seen on conflict
+            localStorage.setItem('movie_status', JSON.stringify([...merged]));
+            localStorage.removeItem('seen_movies');
+            localStorage.removeItem('wanted_movies');
+            movieStatus = merged;
+        }
+
+        function saveStatus() {
+            localStorage.setItem('movie_status', JSON.stringify([...movieStatus]));
+        }
+
+        function updateHeaderIndicators() {
+            document.querySelectorAll('thead th').forEach(h => h.classList.remove('sort-asc','sort-desc'));
+            if (sortMode === 'country_genre') {
+                document.querySelector('[data-key="country"]').classList.add('sort-asc');
+                document.querySelector('[data-key="genre"]').classList.add('sort-asc');
+            } else if (sortMode) {
+                // e.g. 'title_asc' → key='title', dir='asc'
+                const lastUnderscore = sortMode.lastIndexOf('_');
+                const key = sortMode.slice(0, lastUnderscore);
+                const dir = sortMode.slice(lastUnderscore + 1);
+                const th = document.querySelector(`[data-key="${key}"]`);
+                if (th) th.classList.add(dir === 'asc' ? 'sort-asc' : 'sort-desc');
+            }
+        }
+
+        function updateSortSelect() {
+            document.getElementById('sort-select').value = sortMode;
+        }
+
+        function updateClearSearchLink() {
+            const link = document.getElementById('clear-search');
+            link.style.display = searchQuery ? 'inline' : 'none';
+        }
+
+        function clearSearch() {
+            searchQuery = '';
+            document.getElementById('search-input').value = '';
+            updateClearSearchLink();
+            render();
+        }
+
+        async function init() {
+            migrateLocalStorage();
+            const res = await fetch('movies.json');
+            movies = await res.json();
+            render();
+        }
+
+        function render() {
+            const sorted = [...movies].sort((a, b) => {
+                switch (sortMode) {
+                    case 'want_asc':
+                        return (movieStatus.get(b.id)==='want'?1:0) - (movieStatus.get(a.id)==='want'?1:0);
+                    case 'want_desc':
+                        return (movieStatus.get(a.id)==='want'?1:0) - (movieStatus.get(b.id)==='want'?1:0);
+                    case 'seen_asc':
+                        return (movieStatus.get(b.id)==='seen'?1:0) - (movieStatus.get(a.id)==='seen'?1:0);
+                    case 'seen_desc':
+                        return (movieStatus.get(a.id)==='seen'?1:0) - (movieStatus.get(b.id)==='seen'?1:0);
+                    case 'skip_asc':
+                        return (movieStatus.get(b.id)==='skip'?1:0) - (movieStatus.get(a.id)==='skip'?1:0);
+                    case 'skip_desc':
+                        return (movieStatus.get(a.id)==='skip'?1:0) - (movieStatus.get(b.id)==='skip'?1:0);
+                    case 'title_asc':
+                        return a.title.localeCompare(b.title);
+                    case 'title_desc':
+                        return b.title.localeCompare(a.title);
+                    case 'country_asc':
+                        return a.country.localeCompare(b.country);
+                    case 'country_desc':
+                        return b.country.localeCompare(a.country);
+                    case 'genre_asc':
+                        return a.genre.localeCompare(b.genre);
+                    case 'genre_desc':
+                        return b.genre.localeCompare(a.genre);
+                    case 'summary_asc':
+                        return a.summary.localeCompare(b.summary);
+                    case 'summary_desc':
+                        return b.summary.localeCompare(a.summary);
+                    case 'country_genre':
+                        const cc = a.country.localeCompare(b.country);
+                        return cc !== 0 ? cc : a.genre.localeCompare(b.genre);
+                    default:
+                        return 0;
+                }
+            });
+
+            // Apply filter
+            let visible = sorted;
+            if (filterMode === 'seen') {
+                visible = sorted.filter(m => movieStatus.get(m.id) === 'seen');
+            } else if (filterMode === 'wanted') {
+                visible = sorted.filter(m => movieStatus.get(m.id) === 'want');
+            } else if (filterMode === 'skip') {
+                visible = sorted.filter(m => movieStatus.get(m.id) === 'skip');
+            }
+
+            // Apply search filter
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                visible = visible.filter(m =>
+                    m.title.toLowerCase().includes(q) ||
+                    m.country.toLowerCase().includes(q) ||
+                    m.genre.toLowerCase().includes(q)
+                );
+            }
+
+            const tbody = document.getElementById('movie-body');
+            tbody.innerHTML = visible.map(m => {
+                const status = movieStatus.get(m.id); // undefined | 'want' | 'seen' | 'skip'
+                return `
+                    <tr>
+                        <td><input type="checkbox" data-field="want" data-id="${m.id}" ${status === 'want' ? 'checked' : ''}></td>
+                        <td><input type="checkbox" data-field="seen" data-id="${m.id}" ${status === 'seen' ? 'checked' : ''}></td>
+                        <td><input type="checkbox" data-field="skip" data-id="${m.id}" ${status === 'skip' ? 'checked' : ''}></td>
+                        <td><a href="https://www.imdb.com/find/?q=${encodeURIComponent(m.title)}" target="_blank">${m.title}</a></td>
+                        <td>${m.country}</td>
+                        <td>${m.genre}</td>
+                        <td>${m.summary}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Header sorting
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('thead th').forEach(th => {
+                th.addEventListener('click', () => {
+                    const key = th.dataset.key;
+                    if (sortMode === `${key}_asc`) sortMode = `${key}_desc`;
+                    else sortMode = `${key}_asc`; // new column OR was desc OR was country_genre
+                    updateHeaderIndicators();
+                    updateSortSelect();
+                    render();
+                });
+            });
+
+            // Checkbox change handling (event delegation)
+            document.getElementById('movie-body').addEventListener('change', e => {
+                if (e.target.type !== 'checkbox') return;
+                const id = parseInt(e.target.dataset.id);
+                const field = e.target.dataset.field; // 'want' | 'seen' | 'skip'
+                if (e.target.checked) {
+                    movieStatus.set(id, field); // clears the other status automatically
+                } else {
+                    movieStatus.delete(id);
+                }
+                saveStatus();
+                if (filterMode !== 'all') {
+                    render(); // row may need to disappear from filtered view
+                } else {
+                    // No full re-render needed; just uncheck all other status checkboxes in this row
+                    document.querySelectorAll(`input[data-id="${id}"]:not([data-field="${field}"])`)
+                        .forEach(el => el.checked = false);
+                }
+            });
+
+            // Filter select
+            document.getElementById('filter-select').addEventListener('change', e => {
+                filterMode = e.target.value;
+                render();
+            });
+
+            // Sort select
+            document.getElementById('sort-select').addEventListener('change', e => {
+                sortMode = e.target.value;
+                updateHeaderIndicators();
+                render();
+            });
+
+            // Search input
+            document.getElementById('search-input').addEventListener('input', e => {
+                searchQuery = e.target.value;
+                updateClearSearchLink();
+                render();
+            });
+
+            // Clear search link
+            document.getElementById('clear-search').addEventListener('click', e => {
+                e.preventDefault();
+                clearSearch();
+            });
+        });
+
+        init();
+    </script>
+</body>
+</html>
