@@ -59,12 +59,14 @@ uv sync
 ```
 
 This installs:
+
 - `praw` — Reddit API wrapper
 - `python-dotenv` — Environment variable loading
 
 ### Configure Credentials
 
 1. Create a `.env` file in the project root:
+
    ```
    REDDIT_CLIENT_ID=your_client_id
    REDDIT_CLIENT_SECRET=your_client_secret
@@ -107,4 +109,4 @@ The `docs/` directory is configured as the GitHub Pages source:
 
 ## License
 
-[Add your license here]
+BSD 3-Clause License — see [LICENSE](LICENSE) file for details.
