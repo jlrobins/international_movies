@@ -131,6 +131,7 @@
             <span>
                 Show:
                 <select id="filter-select">
+                    <option value="to_watch">To Watch</option>
                     <option value="all">All</option>
                     <option value="seen">Seen</option>
                     <option value="wanted">Wanted</option>
@@ -171,7 +172,7 @@
     <script>
         let movies = [];
         let sortMode = ''; // '' | 'want_asc' | 'want_desc' | 'seen_asc' | ... | 'country_genre'
-        let filterMode = 'all'; // 'all' | 'seen' | 'wanted' | 'skip'
+        let filterMode = 'to_watch'; // 'to_watch' | 'all' | 'seen' | 'wanted' | 'skip'
         let searchQuery = '';
         let movieStatus = new Map(JSON.parse(localStorage.getItem('movie_status') || '[]'));
         // Stored as [[id, 'seen'], [id, 'want'], ...] — only entries with a status
@@ -211,6 +212,7 @@
 
         async function init() {
             migrateLocalStorage();
+            document.getElementById('filter-select').value = filterMode;
             const res = await fetch('movies.json');
             movies = await res.json();
             render();
@@ -257,7 +259,12 @@
 
             // Apply filter
             let visible = sorted;
-            if (filterMode === 'seen') {
+            if (filterMode === 'to_watch') {
+                visible = sorted.filter(m => {
+                    const s = movieStatus.get(m.id);
+                    return s === 'want' || s === undefined;
+                });
+            } else if (filterMode === 'seen') {
                 visible = sorted.filter(m => movieStatus.get(m.id) === 'seen');
             } else if (filterMode === 'wanted') {
                 visible = sorted.filter(m => movieStatus.get(m.id) === 'want');
