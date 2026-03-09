@@ -142,26 +142,21 @@
                 Sort by:
                 <select id="sort-select">
                     <option value="">— None —</option>
-                    <option value="want_asc">Want ↑</option>
-                    <option value="want_desc">Want ↓</option>
-                    <option value="seen_asc">Seen ↑</option>
-                    <option value="seen_desc">Seen ↓</option>
-                    <option value="skip_asc">Skip ↑</option>
-                    <option value="skip_desc">Skip ↓</option>
-                    <option value="title_asc">Title ↑</option>
-                    <option value="title_desc">Title ↓</option>
-                    <option value="country_asc">Country ↑</option>
-                    <option value="country_desc">Country ↓</option>
-                    <option value="genre_asc">Genre ↑</option>
-                    <option value="genre_desc">Genre ↓</option>
-                    <option value="summary_asc">Comments Summary ↑</option>
-                    <option value="summary_desc">Comments Summary ↓</option>
+                    <option value="want">Want</option>
+                    <option value="seen">Seen</option>
+                    <option value="skip">Skip</option>
+                    <option value="year">Year</option>
+                    <option value="title">Title</option>
+                    <option value="country">Country</option>
+                    <option value="genre">Genre</option>
+                    <option value="summary">Comments Summary</option>
                     <option value="country_genre">Country + Genre</option>
                 </select>
+                <a id="sort-dir" href="#" style="display:none; margin-left:6px; font-weight:bold; color:#2c3e50; text-decoration:none;">↑</a>
             </span>
             <span>
                 Search:
-                <input type="text" id="search-input" placeholder="Title, country, or genre...">
+                <input type="text" id="search-input" placeholder="Title, country, genre, or year...">
                 <a id="clear-search" href="#" style="display: none; margin-left: 8px; color: #2c3e50;">Clear</a>
             </span>
         </div>
@@ -171,7 +166,8 @@
 
     <script>
         let movies = [];
-        let sortMode = ''; // '' | 'want_asc' | 'want_desc' | 'seen_asc' | ... | 'country_genre'
+        let sortCriteria = ''; // '' | 'want' | 'seen' | 'skip' | 'year' | 'title' | 'country' | 'genre' | 'summary' | 'country_genre'
+        let sortDir = 'asc'; // 'asc' | 'desc'
         let filterMode = 'to_watch'; // 'to_watch' | 'all' | 'seen' | 'wanted' | 'skip'
         let searchQuery = '';
         let movieStatus = new Map(JSON.parse(localStorage.getItem('movie_status') || '[]'));
@@ -194,8 +190,11 @@
             localStorage.setItem('movie_status', JSON.stringify([...movieStatus]));
         }
 
-        function updateSortSelect() {
-            document.getElementById('sort-select').value = sortMode;
+        function updateSortControls() {
+            document.getElementById('sort-select').value = sortCriteria;
+            const dirLink = document.getElementById('sort-dir');
+            dirLink.style.display = sortCriteria ? 'inline' : 'none';
+            dirLink.textContent = sortDir === 'asc' ? '↑' : '↓';
         }
 
         function updateClearSearchLink() {
@@ -213,6 +212,7 @@
         async function init() {
             migrateLocalStorage();
             document.getElementById('filter-select').value = filterMode;
+            updateSortControls();
             const res = await fetch('movies.json');
             movies = await res.json();
             render();
@@ -220,38 +220,37 @@
 
         function render() {
             const sorted = [...movies].sort((a, b) => {
-                switch (sortMode) {
-                    case 'want_asc':
-                        return (movieStatus.get(b.id)==='want'?1:0) - (movieStatus.get(a.id)==='want'?1:0);
-                    case 'want_desc':
-                        return (movieStatus.get(a.id)==='want'?1:0) - (movieStatus.get(b.id)==='want'?1:0);
-                    case 'seen_asc':
-                        return (movieStatus.get(b.id)==='seen'?1:0) - (movieStatus.get(a.id)==='seen'?1:0);
-                    case 'seen_desc':
-                        return (movieStatus.get(a.id)==='seen'?1:0) - (movieStatus.get(b.id)==='seen'?1:0);
-                    case 'skip_asc':
-                        return (movieStatus.get(b.id)==='skip'?1:0) - (movieStatus.get(a.id)==='skip'?1:0);
-                    case 'skip_desc':
-                        return (movieStatus.get(a.id)==='skip'?1:0) - (movieStatus.get(b.id)==='skip'?1:0);
-                    case 'title_asc':
-                        return a.title.localeCompare(b.title);
-                    case 'title_desc':
-                        return b.title.localeCompare(a.title);
-                    case 'country_asc':
-                        return a.country.localeCompare(b.country);
-                    case 'country_desc':
-                        return b.country.localeCompare(a.country);
-                    case 'genre_asc':
-                        return a.genre.localeCompare(b.genre);
-                    case 'genre_desc':
-                        return b.genre.localeCompare(a.genre);
-                    case 'summary_asc':
-                        return a.summary.localeCompare(b.summary);
-                    case 'summary_desc':
-                        return b.summary.localeCompare(a.summary);
-                    case 'country_genre':
-                        const cc = a.country.localeCompare(b.country);
-                        return cc !== 0 ? cc : a.genre.localeCompare(b.genre);
+                const factor = sortDir === 'asc' ? 1 : -1;
+                switch (sortCriteria) {
+                    case 'want': {
+                        const bHas = movieStatus.get(b.id) === 'want' ? 1 : 0;
+                        const aHas = movieStatus.get(a.id) === 'want' ? 1 : 0;
+                        return factor * (bHas - aHas);
+                    }
+                    case 'seen': {
+                        const bHas = movieStatus.get(b.id) === 'seen' ? 1 : 0;
+                        const aHas = movieStatus.get(a.id) === 'seen' ? 1 : 0;
+                        return factor * (bHas - aHas);
+                    }
+                    case 'skip': {
+                        const bHas = movieStatus.get(b.id) === 'skip' ? 1 : 0;
+                        const aHas = movieStatus.get(a.id) === 'skip' ? 1 : 0;
+                        return factor * (bHas - aHas);
+                    }
+                    case 'year':
+                        return factor * ((a.year ?? 0) - (b.year ?? 0));
+                    case 'title':
+                        return factor * a.title.localeCompare(b.title);
+                    case 'country':
+                        return factor * a.country.localeCompare(b.country);
+                    case 'genre':
+                        return factor * a.genre.localeCompare(b.genre);
+                    case 'summary':
+                        return factor * a.summary.localeCompare(b.summary);
+                    case 'country_genre': {
+                        const cc = factor * a.country.localeCompare(b.country);
+                        return cc !== 0 ? cc : factor * a.genre.localeCompare(b.genre);
+                    }
                     default:
                         return 0;
                 }
@@ -278,7 +277,8 @@
                 visible = visible.filter(m =>
                     m.title.toLowerCase().includes(q) ||
                     m.country.toLowerCase().includes(q) ||
-                    m.genre.toLowerCase().includes(q)
+                    m.genre.toLowerCase().includes(q) ||
+                    (m.year && m.year.toString().includes(q))
                 );
             }
 
@@ -293,7 +293,7 @@
                             <label><input type="checkbox" data-field="skip" data-id="${m.id}" ${status === 'skip' ? 'checked' : ''}> Skip</label>
                         </div>
                         <h2 class="card-title"><a href="https://www.imdb.com/find/?q=${encodeURIComponent(m.title)}" target="_blank">${m.title}</a></h2>
-                        <div class="card-meta">${m.country} · ${m.genre}</div>
+                        <div class="card-meta">${m.year ? m.year + ' · ' : ''}${m.country} · ${m.genre}</div>
                         <p class="card-summary">${m.summary}</p>
                     </div>
                 `;
@@ -330,7 +330,16 @@
 
             // Sort select
             document.getElementById('sort-select').addEventListener('change', e => {
-                sortMode = e.target.value;
+                sortCriteria = e.target.value;
+                updateSortControls();
+                render();
+            });
+
+            // Sort direction toggle
+            document.getElementById('sort-dir').addEventListener('click', e => {
+                e.preventDefault();
+                sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+                updateSortControls();
                 render();
             });
 
