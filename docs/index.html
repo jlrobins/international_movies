@@ -292,7 +292,7 @@
                             <label><input type="checkbox" data-field="seen" data-id="${m.id}" ${status === 'seen' ? 'checked' : ''}> Seen</label>
                             <label><input type="checkbox" data-field="skip" data-id="${m.id}" ${status === 'skip' ? 'checked' : ''}> Skip</label>
                         </div>
-                        <h2 class="card-title"><a href="https://www.imdb.com/find/?q=${encodeURIComponent(m.title)}" target="_blank">${m.title}</a></h2>
+                        <h2 class="card-title"><a href="https://www.imdb.com/find/?q=${encodeURIComponent(m.year ? m.title + ' (' + m.year + ')' : m.title)}" target="_blank">${m.title}</a></h2>
                         <div class="card-meta">${m.year ? m.year + ' · ' : ''}${m.country} · ${m.genre}</div>
                         <p class="card-summary">${m.summary}</p>
                     </div>
